@@ -11,7 +11,11 @@
     <div>
         <ul>
             <li>
-                {{t}}&nbsp; 
+                {% if t.completed %}
+                    <strike>{{t}}</strike>&nbsp; 
+                {% else %}
+                    {{t}}
+                {% endif %}
                 <a href="{% url 'update_task' t.id %}">Update</a>&nbsp;
                 <a href="{% url 'delete_task' t.id %}">Delete</a>
             </li>
