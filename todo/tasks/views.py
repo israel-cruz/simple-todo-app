@@ -32,7 +32,20 @@ def update_task(request, pk): #primary key
             return redirect('/')
 
     context = {
-        'form':form
+        'form':form,
     }
 
     return render(request, "tasks/update_task.html", context)
+
+def delete_task(request, pk): #primary key
+    task = Task.objects.get(id=pk)
+
+    if request.method == "POST":
+        task.delete()
+        return redirect('/')
+
+    context = {
+        'task':task,
+    }        
+
+    return render(request, "tasks/delete_task.html", context)
