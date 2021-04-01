@@ -5,15 +5,13 @@
 
     {{form.title}}
     <input type="submit" value="Add task">
-
 </form>
-
 
 {% for t in tasks %}
     <div>
         <ul>
             <li>
-                {{t}}
+                {{t}} <a href="{% url 'update_task' t.id%}">Update</a>
             </li>
         </ul>
     </div>
