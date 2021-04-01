@@ -1,7 +1,15 @@
 <h2>To Do List</h2>
 
-{% for t in tasks %}
+<form method="POST" action="">
+    {% csrf_token %}
 
+    {{form.title}}
+    <input type="submit" value="Add task">
+
+</form>
+
+
+{% for t in tasks %}
     <div>
         <ul>
             <li>
@@ -9,5 +17,4 @@
             </li>
         </ul>
     </div>
-
 {% endfor %}
